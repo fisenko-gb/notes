@@ -1,8 +1,8 @@
+import json_worker as js
 
-def print_hi(name):
-    print(f'Hi, {name}')
 
 
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    js.test_read_and_write()
+    js.test_sear('заметки 2')
 
