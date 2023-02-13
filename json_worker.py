@@ -50,7 +50,7 @@ def update_str_base(new_str):
         if i['id'] == new_str['id']:
             i['heading'] = new_str['heading']
             i['body'] = new_str['body']
-            i['note_date'] = datetime.now()
+            i['note_date'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             break
     write_base()
 
@@ -78,10 +78,14 @@ def add_base(heading: str, body: str):
         id = int(last_index['id']) + 1
     except:
         id = 1
-    t_date = str(datetime.now())
+    t_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     data_from_json.append({'id': id, 'heading': heading, 'body': body, 'note_date': t_date})
     write_base()
 
+def print_all():
+    global data_from_json
+    data_from_json = read_base()
+    print(show_tuple_string(data_from_json))
 ##################################################################################################
 ##################################################################################################
 
